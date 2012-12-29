@@ -1,0 +1,2 @@
+﻿@using Orchard.Comments.ViewModels;
+<div class="post-comment-count"><strong>&nbsp;with</strong> <a href="@Href("~/" + Model.ContentPart.AutoroutePart.Path + "#comments")">@T.Plural("1 Comment", "{0} Comments", (int)Model.CommentCount)</a> <strong>so far</strong></div>

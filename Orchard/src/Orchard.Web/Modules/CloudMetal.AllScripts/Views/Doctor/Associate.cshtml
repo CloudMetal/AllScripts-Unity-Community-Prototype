@@ -1,0 +1,128 @@
+﻿@{
+    Style.Require("kendo.common");
+    Style.Require("kendo.default");
+    
+    Script.Require("jQuery");
+    Script.Require("ko");
+    Script.Require("kendo");
+
+    String antiFToken = @Html.AntiForgeryTokenValueOrchard().ToString();
+}
+
+<script type="text/javascript">
+    var viewModel = null;
+    
+    $(document).ready(function () {
+        function DoctorModel(personId, firstName, id) {
+            var _self = this;
+            _self.UnityPersonId = ko.observable(personId);
+            _self.FirstName = firstName ? ko.observable(firstName) : "<Unknown>";
+            _self.Id = ko.observable(id);
+        }
+        
+        function DoctorViewModel() {
+            var _self = this;
+
+            _self.selectedDoctor = ko.observable(new DoctorModel());
+        }
+
+        viewModel = new DoctorViewModel();
+
+        viewModel.associate = function (success, fail) {
+            var token = '@Html.AntiForgeryTokenValueOrchard()';
+            var model = viewModel.selectedDoctor();
+            model['__RequestVerificationToken'] = token;
+            var jsonData = ko.toJSON(model);
+
+            var result = $.ajax('/api/CloudMetal.AllScripts/DoctorApi', {
+                data: jsonData,
+                type: 'post',
+                contentType: 'application/json',
+                dataType: 'json',
+                success: function () {
+                    var doc = new JSON.parse(result.responseText);
+                    var docModel = new DoctorModel(doc.UnityPersonId, doc.FirstName, doc.Id);
+
+                    viewModel.selectedDoctor(docModel);
+
+                    if (success) {
+                        success(docModel);
+                    }
+                },
+                error: function (xhr, textStatus, errorThrown) {
+
+                    if (fail) {
+                        fail("Error Code: " + xhr.status + "\r\nError:" + xhr.responseText);
+                    }
+                }
+            });
+        };
+
+        $("#associateButton").click(function() {
+            viewModel.associate(null, function(err) {
+                alert(err);
+            });
+        });
+        
+        $("#grid").kendoGrid({
+            height: 400,
+            columns: [
+                "FirstName"
+            ],
+            pageable: true,
+            sortable: true,
+            selectable: "row",
+            change: function() {
+                var selectedRows = this.select();
+                var dataItem = this.dataItem(selectedRows[0]);
+
+                var doc = new DoctorModel(dataItem.UnityPersonId, dataItem.FirstName);
+                viewModel.selectedDoctor(doc);
+            },
+            dataSource: {
+                serverPaging: true,
+                serverFiltering: true,
+                pageSize: 110,
+                transport: {
+                    read: "/api/CloudMetal.AllScripts/DoctorApi",
+                    type: "json",
+                    parameterMap: function (options, type) {
+                        var paramMap = kendo.data.transports.odata.parameterMap(options);
+
+                        delete paramMap.$inlinecount; // <-- remove inlinecount parameter.
+                        delete paramMap.$format; // <-- remove format parameter.
+
+                        return paramMap;
+                    }
+                },
+                schema: {
+                    data: function (data) {
+                        return data;
+                    },
+                    total: function (data) {
+                        return data.length; // <-- The total items count is the data length, there is no .Count to unpack.
+                    }
+                }
+            }
+        });
+
+        ko.applyBindings(viewModel);
+    });
+</script>
+
+<h3>Associate Doctor</h3>
+<p>Please select yourself from the list below:</p>
+<div id="grid"></div>
+
+<div class="control-group">
+    <label class="control-label" for="inputIcon">Associated Doctor</label>
+    <div class="controls">
+        <div class="input-prepend">
+            <span class="add-on"><i class="icon-user"></i></span>
+            <input data-bind="value: $root.selectedDoctor().FirstName" class="span2" id="inputIcon" type="text" >
+        </div>
+    </div>
+    <div class="form-actions">
+      <button id="associateButton" data-loading-text="Working..." class="btn btn-primary">Associate</button>
+    </div>
+</div>

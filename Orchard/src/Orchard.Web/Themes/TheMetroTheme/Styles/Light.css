@@ -1,0 +1,9 @@
+﻿/*
+Role: Back
+Base Theme: Light
+Author: Marco Siniscalco
+License: MIT
+Copyright: 2012, Marco Siniscalco. All Rights Reserved
+Project Site: http://orchardmetrotheme.codeplex.com/
+***************************************************************/
+body{background:url('../Content/Light/bg_body.png') #fff repeat-x;color:#555}pre{background:#f6f6f6;border:1px solid #ddd}hr{color:#eee;background-color:#ddd}blockquote{border-left:5px solid #e1e1e1}input[type="text"],input[type="password"],textarea,select{color:#777}input[type="text"],input[type="password"],textarea,select{border:2px solid #e5e5e5;padding:8px}input:disabled,textarea:disabled{background:#f1f1f1}input[type="submit"]:disabled,input[type="button"]:disabled{background:#f1f1f1}tr{background:#f8f8f8}tr:nth-child(2n+1){background:#fff}th{font-weight:bold;background:#f5f5f5}th,td{padding-top:10px;border-right:1px solid #eee;border-bottom:1px solid #eee;padding:8px}th:last-child,td:last-child{border-right:1px solid Transparent}#layout-navigation>div{background:#efefef;width:100%}#layout-navigation nav ul li{background:#efefef;border-bottom:1px solid #fff}#layout-navigation nav ul li a{color:#333}#layout-navigation nav ul li.last{border-right:0}#layout-tripel-container{background:#fff}#layout-footer-container-wrapper{background:#333;color:#fff}aside ul.menu li{border-bottom:1px solid #efefef}.blog-posts li{background-color:#f6f6f6;border:1px solid #eaeaea}aside .archives ul.archiveMonthList li{border-bottom:1px solid #efefef}.comments li{background:#f6f6f6;border:1px solid #ccc}.tagged-posts li,.search-results li{background:#f6f6f6;border:1px solid #eaeaea}.well{background-color:#f6f6f6;border:1px solid #efefef}

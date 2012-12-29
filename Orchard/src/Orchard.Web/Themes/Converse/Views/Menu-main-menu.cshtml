@@ -1,0 +1,15 @@
+﻿@{
+    var items = (IList<dynamic>)Enumerable.Cast<dynamic>(Model.Items);
+
+    if (items.Any()) {
+        items[0].Classes.Add("first");
+        items[items.Count - 1].Classes.Add("last");
+    }    
+}
+<nav class="eight columns last nav" role="navigation">
+    <a class="nav-toggle" href="#">Show Navigation</a>
+    <ul class="right nav-bar">
+        @* see MenuItem shape template *@
+        @DisplayChildren(Model)
+    </ul>
+</nav>

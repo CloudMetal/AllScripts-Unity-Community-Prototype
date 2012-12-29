@@ -1,0 +1,56 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Orchard>
+  <Recipe>
+    <Name>Unity</Name>
+    <Description>The Basic Settings for a Unity AllScripts Doctor/Patient Community</Description>
+    <Author>CloudMetal, LLC</Author>
+    <WebSite>http://www.cloudmetal.com</WebSite>
+    <Tags></Tags>
+    <Version>1.0</Version>
+  </Recipe>
+
+  <Feature enable="Orchard.Blogs,Orchard.Comments,Orchard.Tags,Orchard.Alias,Orchard.Autoroute,
+                   TinyMce,Orchard.Media,Orchard.MediaPicker,Orchard.ContentPicker,Orchard.PublishLater,
+                   Orchard.jQuery,Orchard.Widgets,Orchard.Widgets.PageLayerHinting,Orchard.ContentTypes,
+                   Orchard.Scripting,Orchard.Scripting.Lightweight,CloudMetal.AllScripts,
+                   PackagingServices,Orchard.Packaging,Orchard.Warmup,Orchard.Projections,Orchard.Fields,
+                   TheThemeMachine,CloudMetal.Bootstrap" />
+
+  <Metadata>
+    <Types>
+      <Page ContentTypeSettings.Draftable="True" TypeIndexing.Included="true">
+        <TagsPart />
+        <LocalizationPart />
+        <TitlePart/>
+        <AutoroutePart />
+      </Page>
+      <BlogPost ContentTypeSettings.Draftable="True" TypeIndexing.Included="true">
+        <CommentsPart />
+        <TagsPart />
+        <LocalizationPart />
+        <TitlePart/>
+        <AutoroutePart />
+      </BlogPost>
+    </Types>
+    <Parts>
+      <BodyPart BodyPartSettings.FlavorDefault="html" />
+    </Parts>
+  </Metadata>
+
+  <Settings />
+
+  <Migration features="*" />
+
+  <Command>
+    layer create Default /LayerRule:"true" /Description:"The widgets in this layer are displayed on all pages"
+    layer create Authenticated /LayerRule:"authenticated" /Description:"The widgets in this layer are displayed when the user is authenticated"
+    layer create Anonymous /LayerRule:"not authenticated" /Description:"The widgets in this layer are displayed when the user is anonymous"
+    layer create Disabled /LayerRule:"false" /Description:"The widgets in this layer are never displayed"
+    layer create TheHomepage /LayerRule:"url '~/'" /Description:"The widgets in this layer are displayed on the home page"
+    site setting set baseurl
+    menu create /MenuName:"Main Menu"
+    page create /Slug:"welcome-to-unity" /Title:"Welcome to the Unity Community" /Path:"welcome-to-unity" /Homepage:true /Publish:true /UseWelcomeText:false /MenuText:"Home" /MenuName:"Main Menu"
+    widget create MenuWidget /Title:"Main Menu" /RenderTitle:false /Zone:"Navigation" /Position:"1" /Layer:"Default" /Identity:"MenuWidget1" /MenuName:"Main Menu"
+    theme activate "CloudMetal.Bootstrap"
+  </Command>
+</Orchard>

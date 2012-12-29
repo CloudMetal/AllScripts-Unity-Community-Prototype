@@ -1,0 +1,24 @@
+﻿@using Orchard.Utility.Extensions;
+@{
+    if (Model.Title != null) {
+        Layout.Title = Model.Title;
+    }
+
+    var contentTypeClassName = ((string)Model.ContentItem.ContentType).HtmlClassify();
+}
+<article class="post post-page content-item @contentTypeClassName">
+    <header>
+        @Display(Model.Header)
+    </header>
+    @Display(Model.Content)
+    @if (Model.Meta != null) {
+        <div class="post-meta">
+            @Display(Model.Meta)
+        </div>
+    }
+    @if (Model.Footer != null) {
+        <footer>
+            @Display(Model.Footer)
+        </footer>
+    }
+</article>

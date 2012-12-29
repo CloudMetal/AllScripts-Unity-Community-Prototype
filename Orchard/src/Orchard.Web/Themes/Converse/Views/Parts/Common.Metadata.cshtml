@@ -1,0 +1,18 @@
+﻿@{
+    DateTime pubtime = Model.ContentPart.CreatedUtc;
+    string pubdate = pubtime.ToString("yyyy-MM-dd");
+
+    string day = pubtime.ToString("dd");
+    string month = pubtime.ToString("MMMM").Remove(3);
+    string year = pubtime.ToString("yyyy");
+
+    var owner = Model.ContentPart.OwnerField.Value.UserName;
+}
+
+<time class="text-center" datetime="@pubdate" pubdate>
+    <span class="day">@day</span>
+    <span class="month">@month</span>
+    <span class="year">@year</span>
+</time>
+
+<div class="item-author"><strong>Written by</strong> @owner</div>

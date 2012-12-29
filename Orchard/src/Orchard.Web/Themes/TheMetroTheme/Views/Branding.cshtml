@@ -1,0 +1,26 @@
+﻿@{ var homeUrl = Href("~/"); }
+
+@if (WorkContext.HttpContext.Items[TheMetroTheme.Constants.ITEM_USE_BRANDING] != null
+     && WorkContext.HttpContext.Items[TheMetroTheme.Constants.ITEM_USE_BRANDING] == bool.TrueString)
+{ 
+    var urlHelper = new UrlHelper(Html.ViewContext.RequestContext);
+    if( urlHelper.Content("~/") == urlHelper.Content(Request.AppRelativeCurrentExecutionFilePath))
+    {
+        <h1 id="branding">
+            <a href="@homeUrl">
+                @WorkContext.CurrentSite.SiteName
+            </a>
+        </h1>
+    }
+    else
+    {
+        <span id="branding">
+            <a href="@homeUrl">
+                @WorkContext.CurrentSite.SiteName
+            </a>
+        </span>
+    }
+    <span id="brandingDescription"> @{/* TODO: Replace note use Items collection */ }
+        @WorkContext.HttpContext.Items[TheMetroTheme.Constants.ITEM_TAGLINE]
+    </span>
+}

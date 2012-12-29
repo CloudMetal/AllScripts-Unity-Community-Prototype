@@ -1,0 +1,58 @@
+﻿@using Orchard.Comments.Models;
+@using Orchard.Comments;
+@using Orchard.Security;
+@using Orchard.Utility.Extensions;
+
+@{
+    var contextExists = TempData["CreateCommentContext.Name"] != null;
+    var name = Convert.ToString(TempData["CreateCommentContext.Name"]);
+    var commentText = Convert.ToString(TempData["CreateCommentContext.CommentText"]);
+    var email = Convert.ToString(TempData["CreateCommentContext.Email"]);
+    var siteName = Convert.ToString(TempData["CreateCommentContext.SiteName"]);
+}
+
+<section id="comments" class="content-container">
+    <div class="comments-ribbon"><span></span></div>
+
+    @if (Model.ContentPart.Comments.Count > 0) {
+        <h1>@T.Plural("1 Comment", "{0} Comments", (int)Model.ContentPart.Comments.Count)</h1>
+        <div>@{Html.RenderPartial("ListOfComments", (IEnumerable<Orchard.Comments.Models.CommentPart>)Model.ContentPart.Comments);}</div>
+    }
+
+    <section id="respond">
+        @if (Model.ContentPart.CommentsActive == false) {
+            <p class="comments-disabled">@T("Comments have been disabled for this content.")</p>
+        }
+        else if (WorkContext.CurrentUser == null && !AuthorizedFor(Permissions.AddComment)) {
+            <p class="info message">@T("You must {0} to comment.", Html.ActionLink(T("log in").ToString(), "LogOn", new { Controller = "Account", Area = "Orchard.Users", ReturnUrl = string.Format("{0}#addacomment", Context.Request.RawUrl) }))</p>
+        } else {
+            using (Html.BeginForm("Create", "Comment", new { area = "Orchard.Comments" }, FormMethod.Post, new { @class = "comment-form" })) { 
+                @Html.ValidationSummary() 
+                if (WorkContext.CurrentUser == null) {
+                    <h2 id="add-comment">@T("Leave a Response")</h2>
+
+                    <label for="Name">@T("Name")</label>
+                    <input id="Name" class="text" name="Name" type="text" value="@(contextExists ? name : String.Empty)" />
+             
+                    <label for="Email">@T("Email")</label>
+                    <input id="Email" class="text" name="Email" type="text" value="@(contextExists ? email : String.Empty)" />
+            
+                    <label for="SiteName">@T("Url")</label>
+                    <input id="SiteName" class="text" name="SiteName" type="text" value="@(contextExists ? siteName : String.Empty)" />
+                } else {
+                    @Html.Hidden("Name", WorkContext.CurrentUser.UserName ?? "")
+                    @Html.Hidden("Email", WorkContext.CurrentUser.Email ?? "")
+                }
+
+                <h2>@if (WorkContext.CurrentUser != null) { @T("Howdy, {0}!", WorkContext.CurrentUser.UserName)}</h2>
+                    <label for="comment-text">@T("Comment")</label>
+                    <textarea id="comment-text" name="CommentText">@(contextExists ? commentText : String.Empty)</textarea>
+           
+                    <button class="primaryAction" type="submit">@T("Submit Comment")</button>
+                    @Html.Hidden("CommentedOn", (int)Model.ContentPart.ContentItem.Id) 
+                    @Html.Hidden("ReturnUrl", Context.Request.ToUrlString()) 
+                    @Html.AntiForgeryTokenOrchard() 
+            }
+        } 
+    </section><!-- //#respond -->
+</section><!-- //#comments -->

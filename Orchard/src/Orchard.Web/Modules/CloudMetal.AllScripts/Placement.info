@@ -1,0 +1,9 @@
+﻿<Placement>
+  <Place Parts_UnityApiSettings_Edit="Content:0"/>
+  <Place Parts_Doctor_Edit="Content:0"/>
+  <Place Parts_Patient_Edit="Content:0"/>
+  <Place Parts_Doctor="Content:0"/>
+  <Place Parts_Patient="Content:0"/>
+  <Place Parts_Patients="Content:0"/>
+  <Place Parts_UnityUserManagement="Content:0"/>
+</Placement>

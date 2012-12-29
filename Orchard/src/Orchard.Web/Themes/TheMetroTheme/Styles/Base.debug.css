@@ -1,0 +1,530 @@
+﻿/*
+Role: Base
+Author: Marco Siniscalco
+License: MIT
+Copyright: 2012, Marco Siniscalco. All Rights Reserved
+Project Site: http://orchardmetrotheme.codeplex.com/
+***************************************************************/
+
+/* 
+    FONTS
+***************************************************************/
+/*
+@font-face{
+    font-family:"Segoe UI";
+    src:url("../Content/Fonts/segoe-webfont.eot");
+    src:local("☺"),
+        url("../Content/Fonts/segoe-webfont.woff") format("woff"),
+        url("../Content/Fonts/segoe-webfont.ttf") format("truetype"),
+        url("../Content/Fonts/segoe-webfont.svg#webfontAYArIXEC") format("svg")
+}
+*/
+@font-face{
+    font-family:"Segoe UI Light";
+    src:url("../Content/Fonts/segoel-webfont.eot");
+    src:local("☺"),
+        url("../Content/Fonts/segoel-webfont.woff") format("woff"),
+        url("../Content/Fonts/segoel-webfont.ttf") format("truetype"),
+        url("../Content/Fonts/segoel-webfont.svg#webfontN7iRJoLx") format("svg")
+}
+
+/* 
+    RESET
+***************************************************************/
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, font, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    outline: 0;
+    font-weight: inherit;
+    font-style: inherit;
+    font-size: 100%;
+    font-family: inherit;
+    vertical-align: baseline;
+}
+
+/* Remember focus styles! */
+:focus { outline: 0; }
+
+ol, ul { list-style: none; }
+
+/* Tables still need 'cellspacing="0"' in the markup */
+table { width: 100%; border-collapse: separate; border-spacing: 0; }
+caption, th, td { text-align: left; }
+th.center, td.center { text-align: center; }
+th.right, td.right { text-align: right; }
+
+blockquote:before, blockquote:after,
+q:before, q:after { content: ""; }
+blockquote, q { quotes: "" ""; }
+
+/* HTML 5 elements as block */  
+header, footer, aside, nav, article { display: block; }
+
+/* 
+    GENERAL
+***************************************************************/
+body {
+  font-family: "Segoe UI Light", sans-serif;
+}
+
+img {
+    max-width: 100%;
+    width: auto;
+    max-height: 100%;
+    height: auto;
+}
+
+    /* 
+        Headings
+    ---------------------------------------------------------------------------*/
+    h1,h2,h3,h4,h5,h6 { margin: 9px 0 9px 0; }
+
+    h1 { font-size: 220%; /*34px;*/ } h1:first-of-type { margin-top:0; }
+    h2 { font-size: 190%; /*29px;*/ }
+    h3 { font-size: 165%; /*26px;*/ }
+    h4 { font-size: 140%; /*22px;*/ }
+    h5 { font-size: 120%; /*18px;*/ }
+    h6 { font-size: 100%; /*14px;*/ }
+
+    h1 img, h2 img, h3 img, h4 img, h5 img, h6 img { margin: 0; }
+
+    /* 
+        Lists
+    ---------------------------------------------------------------------------*/
+    li ul, 
+    li ol       { margin:0 24px; }
+    ul, ol      { margin: 24px; line-height: 24px; }
+
+    ul          { list-style-type: square; }
+    ol          { list-style-type: decimal; }
+
+    dl          { margin: 0 0 24px 0; }
+    dl dt       { font-weight: 400; }
+    dd          { margin-left: 24px;}
+
+    /* 
+        Text elements
+    ---------------------------------------------------------------------------*/
+    p           { margin: 0 0 16px; line-height: 24px; word-wrap: break-word; }
+    p img.left  { float: left; margin: 14px 14px 14px 0; padding: 0; }
+    p img.right { float: right; margin: 14px 0 14px 14px; }
+
+    a:focus, 
+    a:hover     { text-decoration: none; }
+    a           { text-decoration: none; }
+
+    blockquote  { margin: 14px; padding-left: 14px; font-style: italic; line-height: 24px; }
+    strong      { font-weight: bold; }
+    em,dfn      { font-style: italic; }
+    dfn         { }
+    sup, sub    { line-height: 0; }
+
+    abbr, 
+    acronym     { border-bottom: 1px dotted #666; }
+    address     { margin: 0 0 0.923em; font-style: italic; }
+    del         { }
+
+    pre,code,tt { font: 1em 'courrier', 'lucida console', monospace; line-height: 24px; }
+    pre { white-space: pre; font-size:0.813em; padding: 10px; margin: 20px 0; }
+    hr  { height: 1px; border:none; margin: 20px 0 20px 0; }
+
+    /* 
+        Forms
+    ---------------------------------------------------------------------------*/
+    form              { margin: 0; padding: 0;}
+    legend            { font-size: 1.231em; font-weight: 300; border:none;}
+    fieldset          { padding:6px 0 0; margin:0 0 12px 0; border: 0px solid #dbdbdb; }
+    label             { font-weight:300; display:block; padding: 0 0 0.3em 0; }
+    label.forcheckbox { margin:0 0 0 .4em; display:inline; }
+
+    legend span,
+    label span { font-weight:300; }
+    label input { vertical-align:text-top; }
+    .hint {
+        display:block;
+        font-size: 0.846em;
+        margin-top: 3px;
+        padding: 3px;
+    }
+
+    input[type="text"], input[type="password"], select, textarea {  
+        padding:8px 10px 8px 10px;
+        width: 250px;  
+    }
+    select { height:38px; }
+    select[multiple] { height:150px; padding:0; }
+    option { padding:8px 10px 8px 10px; }
+
+    textarea { width:95%; font-family: "Segoe UI", sans-serif; }
+
+    input[type="checkbox"] {
+        background:#fff;
+        border:none;
+        padding:0;
+    }
+
+    input[type="submit"],
+    input[type="button"] {
+        border:none;
+        padding:8px 10px 8px 10px;
+    }
+    input[type="submit"]:hover,
+    input[type="button"]:hover {
+        cursor:pointer;
+    }
+
+/* 
+    LAYOUTS
+***************************************************************/
+#topBar {
+    margin: 5px auto;
+    }
+
+#layout-header { }
+    #branding 
+    {   
+        font-family: "Segoe UI Light";
+        font-size: 400%; /*4em;*/
+        padding: 0;
+        margin: 0;
+        display: block;
+    }
+    #branding img {
+        float: left;
+        margin: 0 10px 0 0;
+    }
+    #branding a 
+    {
+        text-decoration: none;
+    }
+    span#brandingDescription 
+    {   
+        float: left;
+        display: block;
+        line-height: 1.5;
+        font-style: italic;
+    }
+
+/* 
+    NAVIGATION 
+***************************************************************/
+#layout-navigation {
+    margin: 40px auto 40px auto;
+}
+    #layout-navigation .widget { margin: 0; }
+
+    nav ul {
+        padding: 0px;
+        margin: 0px;
+    }
+        nav ul li {
+            display: block;
+            margin: 3px 0 3px 0;
+        }
+        nav > ul li.current { font-weight: bold; }
+        nav ul li a {
+            padding: 3px;
+            display: block;
+            text-decoration: none;
+            line-height: 24px;
+        }
+        #layout-navigation nav ul li { margin: 0; }
+        #layout-navigation nav ul li a { padding: 5px 18px 5px 18px; }
+
+    /* first level */
+    nav > ul > li:hover > ul { display: block; }
+    nav > ul > li:hover { }
+    #layout-navigation nav > ul > li { float: left; }
+    #layout-navigation nav > ul > li > a { float: left; }
+
+    /* second level */
+    nav > ul > li > ul { margin: 24px 0px 0px -1px; padding: 0px; display: none; position: absolute; border: 1px solid #dbdbdb;}
+    nav > ul > li > ul > li { list-style-type: none; margin: 0px; border: none;}
+    nav > ul > li > ul > li > a { display: block; text-decoration: none;}
+    nav > ul > li > ul > li:hover > a { }
+
+    nav > ul > li > ul > li:hover > ul { display:block; }
+
+    /* third level */
+    nav > ul > li > ul > li > ul { margin: -20px -1px 0px 90% ; padding: 0px; display: none; position: absolute; border: 1px solid #dbdbdb; }
+    nav > ul > li > ul > li > ul > li { list-style-type: none; margin: 0px; border: none;}
+    nav > ul > li > ul > li > ul > li > a { display: block; text-decoration: none;}
+    nav > ul > li > ul > li > ul > li:hover > a { }
+
+    /* deeper levels */
+    nav > ul > li > ul > li > ul ul { display:none; }
+
+    /* Breadcrumb */
+    nav ul.breadcrumb {
+        border: none;
+        display: inline-block;
+        margin: -9px;
+    }
+        nav ul.breadcrumb li {
+            border: none;
+            background: none;
+            display: block;
+            margin: 0 2px -1px 0;
+        }
+        nav ul.breadcrumb li:after {
+            content: "/"
+        }
+        nav ul.breadcrumb li.last:after {
+            content: ""
+        }
+            nav ul.breadcrumb li a {
+                padding: 0 9px;
+                display: block;
+            }
+            nav ul.breadcrumb li a:hover {
+                text-decoration: underline;
+            }
+
+#layout-tripel-container h1, #footer-quad-container h1 { font-size: 180%; /*26px;*/ }
+#layout-tripel-container h2, #footer-quad-container h2 { font-size: 160%; /*22px;*/ }
+#layout-tripel-container h3, #footer-quad-container h3 { font-size: 150%; /*20px;*/ }
+#layout-tripel-container h4, #footer-quad-container h4 { font-size: 135%; /*18px;*/ }
+#layout-tripel-container h5, #footer-quad-container h5 { font-size: 120%; /*16px;*/ }
+#layout-tripel-container h6, #footer-quad-container h6 { font-size: 100%; /*14px;*/ }
+
+/* 
+    ZONES
+***************************************************************/
+.zone { } 
+.zone-content { margin-bottom: 40px; } 
+
+/* 
+    USER
+***************************************************************/
+.credits { float: left; margin-bottom: 10px; }
+.user-display { float: right; }
+.user-display .welcome { }
+.user-display .user-actions { }
+
+/* 
+    MAIN
+***************************************************************/
+
+/* Content lists and details */
+.content-description { font-size: 1.154em; }
+.content-items { padding: 0; margin: 0; list-style: none; }
+.content-items li { padding: 0; margin: 0; }
+.content-items .content-item { }
+.content-items .content-item header { }
+.content-items .content-item header h1 { font-size: 1.308em; }
+.content-items .content-item header h1 a { }
+.content-items .content-item header h1 a:hover { }
+
+/* 
+    TAGS
+***************************************************************/
+.tags { margin-top: 12px; }
+.tags a { padding: 3px 6px; font-size:0.875em; }
+.tags a:hover { }
+
+/* 
+    METADATA
+***************************************************************/
+.metadata { margin: 0 0 12px 0; font-size: 0.846em; }
+.metadata .published { display: inline; margin: 0 6px 0 0; }
+.metadata .commentcount { display: inline; }
+.meta {}
+
+/* 
+    COMMENTS
+***************************************************************/
+#comments { margin: 24px 0 0 0; padding: 0; }
+.comment-form { margin: 24px 0 0 0; padding: 0; }
+    .comment-form .who ol,
+    .comment-form .what ol { padding:0; margin:0; } { padding:0; margin:0; }
+    .comment-form .who ol li,
+    .comment-form .what ol li { list-style:none; list-style-type:none; }
+    .comment-form .what ol li button.primaryAction { margin-top:20px; line-height: 1; }
+.comments { margin: 0; padding: 0; list-style: none; }
+.comments li { margin: 12px 0 0 0; padding: 12px; }
+.comment { margin: 0; padding: 0; }
+.comment h4 { font-size: 1.077em; }
+.comment .who {}
+.comment .what {}
+.comment #add-comment {}
+.comment-form #comment-by { font-size: 1.231em; font-weight: normal; margin: 0 0 1.2em 0; border:none; }
+.comment-form #comment-text { width:100%; width: 33.2em; }
+.comment-form input[type="text"] { width: 32em; }
+.comment-disabled {}
+.comment-count { font-size: 1.231em; }
+
+/* 
+    BLOGS
+***************************************************************/
+.blog-posts li { padding: 10px; margin-bottom: 20px; }
+.archives ul.archiveMonthList li.first { width:100%; }
+.archives ul.archiveMonthList li { width:100%; text-align:left; list-style:none; }
+.archives ul.archiveMonthList li a { width:100%; display:block; padding: 3px; }
+.archives ul.archiveMonthList li a:hover { }
+.archives ul.archiveMonthList li.last { width:100%; }
+
+
+/* 
+    CONFIRMATIONS
+***************************************************************/
+.message, .validation-summary-errors { margin:10px 0 4px 0; padding:4px; }
+.messages a { font-weight:bold; }
+.message-Information { background:#e6f1c9; /* green */ border:1px solid #cfe493; color:#062232; }
+.message-Warning { background:#fdf5bc; /* yellow */ border:1px solid #ffea9b; }
+.critical.message, .validation-summary-errors, .message-Error { background:#ff0000; border:1px solid #ff0000; color:#fff; font-weight:400; }
+
+/*
+    SEARCH
+***************************************************************/
+.tagged-posts li,
+.search-results li { 
+	padding: 10px;
+	margin-bottom: 20px;
+}
+
+/* 
+    WIDGETS
+***************************************************************/
+.widgets { }
+.widget { margin-bottom:20px; }
+.widget h1 { }
+
+/* Edit Mode Widgets */
+/* These are the edit controls that appear when you're logged-in */
+.widget-control { position: relative; border: 1px dotted #5f97af; }
+.widget-control .manage-actions { position:absolute; top: 0px; right: 0px; }
+.widget-control .manage-actions a { display: block; padding: 3px 6px;  }
+.widget-control .manage-actions a:hover { text-decoration: none; }
+
+/* Content Mode */
+.content-control { border: 1px dotted #5f97af; overflow:auto; position: relative; }
+.content-control .manage-actions { position:absolute; top: 0px; right: 0px; }
+.content-control .manage-actions a { display: block; padding: 3px 6px;  }
+.content-control .manage-actions a:hover { text-decoration: none; }
+
+.widget-search-form { width: 100%; margin-bottom: 10px; }
+.widget-search-form #q { width: 95%; }
+.widget-search-form button { display: none; }
+
+/* 
+    PAGER
+***************************************************************/
+.pager { list-style: none; padding: 0; margin: 12px 0 0 0; }
+.pager li { float: left; padding: 0 12px 0 0; margin: 0; }
+.pager a, .pager span { font-size: 1.077em; display: block; padding: 6px 6px; }
+.pager a:hover { }
+.pager span { }
+
+/* 
+    MENU
+***************************************************************/
+aside ul.menu li.first { }
+aside ul.menu li { text-align:left; }
+aside ul.menu li a { display:block; }
+aside ul.menu li a { padding-left:0; }
+aside ul.menu li a:hover { }
+aside ul.menu li.last { }
+
+/* 
+    MISC
+***************************************************************/
+
+.small      { font-size: 0.615em; margin-bottom: 1.875em; line-height: 1.875em; }
+.large      { font-size: 1.231em; line-height: 2.231em; margin-bottom: 1.25em; }
+.hide       { display: none; }
+
+.quiet      { }
+.loud       { }
+.highlight  { background:#ff0; }
+.added      { background:#060; color: #fff; }
+.removed    { background:#900; color: #fff; }
+
+.first      { margin-left:0; padding-left:0; }
+.last       { margin-right:0; padding-right:0; }
+.top        { margin-top:0; padding-top:0; }
+.bottom     { margin-bottom:0; padding-bottom:0; }
+
+.credits { float: left; }
+.user-display { float: right; }
+.user-display .welcome { }
+.user-display .user-actions { }
+
+.login-form { margin: 24px 0 0 0; }
+.login-form ol { list-style: none; }
+
+/* 
+    UTILITY
+***************************************************************/
+.well { padding: 20px; }
+
+.hero-unit {
+    font-size: 18px;
+    padding: 20px; 
+    margin-bottom: 20px;
+}
+    .hero-unit h1,
+    .hero-unit h2,
+    .hero-unit h3,
+    .hero-unit h4,
+    .hero-unit h5,
+    .hero-unit h6 {
+        margin-bottom:5px;
+        font-weight: bold;
+    }
+
+/* 
+    Grid and Responsive 
+***************************************************************/
+#layout-wrapper {
+     max-width: 1200px;
+     margin: 0 auto;
+     /*overflow: hidden;*/
+     position: relative;
+}
+#layout-footer-container-wrapper { width:100%; }
+#layout-footer-container {
+     max-width: 1200px;
+     margin: auto;
+}
+
+    .col {
+        border: 0px solid rgba(0,0,0,0);
+        float: left;
+        -webkit-box-sizing: border-box;
+        -moz-box-sizing: border-box;
+        box-sizing: border-box;
+        -moz-background-clip: padding-box !important;
+        -webkit-background-clip: padding-box !important;
+        background-clip: padding-box !important;
+    }
+
+    .row { margin-left: 0px; }
+    .col { border-left-width: 0px; padding: 0 10px; }
+
+    /* Clearing Floats
+    ---------------------------------------------------------------------------*/
+    .row:after 
+    {
+        content: ".";
+        display: block;
+        height: 0;
+        clear: both;
+        visibility: hidden;
+    }
+
+    .zone:after, .widget-control:after /* .zone:after self clears every zone container - .widget-control:after self clears any floats used in a widget */
+    {
+        content: ".";
+        display: block;
+        height: 0;
+        clear: both;
+        visibility: hidden;
+    }

@@ -1,0 +1,12 @@
+﻿Name: Orchard.KendoUI
+AntiForgery: enabled
+Author: CloudMetal, LLC
+Website: http://www.cloudmetal.com
+Version: 0.1
+OrchardVersion: 1.0
+Category: Developer
+Description: KendoUI User Interface Wrapper
+Dependencies: Orchard.jQuery
+Features:
+    Orchard.KendoUI:
+        Description: This module provides support for KendoUI.

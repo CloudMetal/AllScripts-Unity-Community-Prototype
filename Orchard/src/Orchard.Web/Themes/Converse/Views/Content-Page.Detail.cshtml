@@ -1,0 +1,50 @@
+﻿<article class="content-item">
+    <div class="content-container">
+        <div class="page-ribbon"><span></span></div>
+        <header class="item-header">
+            @Display(Model.Header)
+            @if (Model.Meta != null) {
+                <div class="item-meta">
+                    @Display(Model.Meta)
+                </div><!-- //.item-meta -->                
+            }
+        </header>
+
+        <div class="item-content">
+            @Display(Model.Content)
+        </div><!-- //.item-content -->
+
+        <footer class="item-footer">
+             @* These will be moved to a Module and attached as a part. *@
+
+            <div class="clearfix item-share">
+                <div class="tweet-button">
+                    <a href="https://twitter.com/share" class="twitter-share-button">Tweet</a>
+                    <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+                </div><!-- //.tweet-button -->
+
+                <div class="like-button">
+                    <iframe src="//www.facebook.com/plugins/like.php?href=@Request.Url.AbsoluteUri&amp;send=false&amp;layout=button_count&amp;width=450&amp;show_faces=true&amp;action=like&amp;colorscheme=light&amp;font&amp;height=21" scrolling="no" frameborder="0" style="border: none; overflow: hidden; width: 110px; height:21px;" allowTransparency="true"></iframe>
+                </div><!-- //.like-button -->
+
+                <div class="plusone-button">
+                    <!-- Place this tag where you want the +1 button to render. -->
+                    <div class="g-plusone" data-size="medium"></div>
+
+                    <!-- Place this tag after the last +1 button tag. -->
+                    <script type="text/javascript">
+                        (function() {
+                        var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
+                        po.src = 'https://apis.google.com/js/plusone.js';
+                        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
+                        })();
+                    </script>
+                </div><!-- //.plusone-button -->
+            </div><!-- //.item-share -->
+
+            @Display(Model.Footer)
+        </footer> 
+    </div><!-- //.content-container -->
+
+    @Display(Model.Comments)
+</article>

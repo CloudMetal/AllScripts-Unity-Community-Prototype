@@ -1,0 +1,7 @@
+Name: CloudMetal.Bootstrap
+Author: CloudMetal, LLC
+Description: CloudMetal Boostrap Theme
+Version: 2.2.2
+Tags:
+Website: http://www.cloudmetal.com
+Zones: Header, Navigation, Featured, BeforeMain, AsideFirst, Messages, BeforeContent, Content, AfterContent, AsideSecond, AfterMain, TripelFirst, TripelSecond, TripelThird, FooterQuadFirst, FooterQuadSecond, FooterQuadThird, FooterQuadFourth, Footer

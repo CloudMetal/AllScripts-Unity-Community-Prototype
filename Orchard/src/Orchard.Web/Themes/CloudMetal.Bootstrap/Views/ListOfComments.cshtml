@@ -1,0 +1,22 @@
+﻿@model IEnumerable<Orchard.Comments.Models.CommentPart>
+@using Orchard.Comments.Models;
+@using Orchard.Utility.Extensions;
+<ol class="commentlist">
+    @foreach (var comment in Model) {
+        <li>
+            <article class="comments" id="comment-@comment.Id">
+                <div class="avatar">
+                    <img src="http://www.gravatar.com/avatar/00000000000000000000000000000000?d=mm&s=50" alt="" width="50" height="50" border="0" />
+                </div>
+                <div class="comment-des">
+                    <div class="comment-by">
+                        <strong>@Display.CommentAuthor(ContentPart: comment)</strong>
+                        <span class="date">@Display.CommentMetadata(ContentPart: comment)</span>
+                    </div>
+                    <p>@(new MvcHtmlString(Html.Encode(comment.Record.CommentText).Replace("\r\n", "<br />\r\n")))</p>
+                </div>
+            </article>
+        </li>
+    }
+</ol>
+

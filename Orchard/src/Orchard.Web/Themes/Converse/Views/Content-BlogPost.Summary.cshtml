@@ -1,0 +1,22 @@
+﻿<article class="content-item blog-post">
+    <div class="content-container">
+        <header class="item-header">
+            @Display(Model.Header)
+            @if (Model.Meta != null) {
+                <div class="item-meta">
+                    @Display(Model.Meta)
+                </div><!-- //.item-meta -->                
+            }
+        </header>
+
+        <div class="item-content">
+            @Display(Model.Content)
+        </div><!-- //.iten-content -->
+
+        <footer class="item-footer">
+            @Display(Model.Footer)
+        </footer> 
+    </div><!-- //.content-container -->
+
+    @Display(Model.Comments)
+</article>

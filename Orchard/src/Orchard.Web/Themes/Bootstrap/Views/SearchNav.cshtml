@@ -1,0 +1,8 @@
+﻿@using Orchard.Search.ViewModels;
+
+@using (Html.BeginForm("Index", "Search", new { area = "Orchard.Search" }, FormMethod.Get, new { @class = "navbar-form pull-right" })) {
+    <div class="input-append">
+        @Html.TextBox("q", (SearchViewModel)Model.ViewModel.Query, new { @class = "input-medium", placeholder = "Search" })
+        <button type="submit" class="btn"><i class="icon-search"></i></button>
+    </div>
+}

@@ -1,0 +1,18 @@
+﻿@using Orchard.ContentManagement
+
+@{
+    var userCanRegister = WorkContext.CurrentSite.As<Orchard.Users.Models.RegistrationSettingsPart>().UsersCanRegister;
+    var enableLostPassword = WorkContext.CurrentSite.As<Orchard.Users.Models.RegistrationSettingsPart>().EnableLostPassword;
+}
+
+<div class="text-center login-container">           <a href="http://www.orchardproject.net" rel="external"><img class="login-logo" src="@Href(Html.ThemePath(WorkContext.CurrentTheme, "/Images/login-logo.png"))" alt="Orchard Logo" /></a>    @Html.ValidationSummary(T("Something wasn't quite right there. Please correct the errors and try again.").ToString())    <div class="text-left login-form-outer">        <h1 class="text-center login-title">Login to @WorkContext.CurrentSite.SiteName</h1>        <div class="login-form">            @using (Html.BeginFormAntiForgeryPost(Url.Action("LogOn", new { ReturnUrl = Request.QueryString["ReturnUrl"] }))) {
+                <label for="username-email">@T("Username")</label>
+                @Html.TextBox("userNameOrEmail", "", new { id = "username-email", autofocus = "autofocus" })
+                @Html.ValidationMessage("userNameOrEmail")
+                   
+                <label for="password">@T("Password")</label>
+                @Html.Password("password")
+                @Html.ValidationMessage("password")
+                 
+                <div class="clearfix login-actions">                    <div class="left remember-me">                        @Html.CheckBox("rememberMe", new { id = "remember-me" })                        <label class="forcheckbox" for="remember-me">@T("Remember Me")</label>                    </div><!-- //.remember-me -->                    <button type="submit" class="right login-button">@T("Login")</button>                </div><!-- //.login-actions -->
+            }        </div><!--//.login-form -->    </div><!-- //.login-form-outer -->    <div class="text-left back-to-site"><a href="@Href("~/")" rel="index">&larr; Back to @WorkContext.CurrentSite.SiteName</a></div></div><!-- //.login-container -->

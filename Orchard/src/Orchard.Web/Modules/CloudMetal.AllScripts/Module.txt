@@ -1,0 +1,12 @@
+﻿Name: CloudMetal.AllScripts
+AntiForgery: enabled
+Author: CloudMetal, LLC
+Website: http://www.cloudmetal.com
+Version: 0.2
+OrchardVersion: 1.5
+Description: AllScripts Unity Community Module
+Category: AllScripts
+Dependencies:  Orchard.Users,Orchard.jQuery,Orchard.Knockout,Orchard.KendoUI
+Features:
+    CloudMetal.AllScripts:
+        Description: Functionality for an AllScript Unity Community.

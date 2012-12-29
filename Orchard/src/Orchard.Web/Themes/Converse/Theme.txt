@@ -1,0 +1,6 @@
+Name: Converse
+Author: Orchard Prime
+Website: http://www.orchardprime.com
+Description: A modern, responsive blogging theme designed and made by Orchard Prime.
+Version: 0.1.1
+Zones: Logo, Navigation, Content, AuthorBio, Sidebar, FooterFirst, FooterSecond, FooterThird, Footer

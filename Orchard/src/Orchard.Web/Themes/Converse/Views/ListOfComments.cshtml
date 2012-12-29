@@ -1,0 +1,12 @@
+﻿@model IEnumerable<Orchard.Comments.Models.CommentPart>
+@using Orchard.Comments.Models;
+@using Orchard.Utility.Extensions;
+
+@foreach (var comment in Model) {
+    <article class="comment" id="comment-@comment.Id">
+        <header class="comment-header">
+                <h4>@Display.CommentAuthor(ContentPart: comment) @Display.CommentMetadata(ContentPart: comment)</h4>
+        </header>
+        <p class="comment-content">@(new MvcHtmlString(Html.Encode(comment.Record.CommentText).ReplaceNewLinesWith("<br />")))</p>
+    </article>
+}

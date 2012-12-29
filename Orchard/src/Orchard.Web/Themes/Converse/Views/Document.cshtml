@@ -1,0 +1,33 @@
+﻿@using Orchard.Mvc.Html;
+@using Orchard.UI.Resources;
+
+@{
+    string currentCulture = WorkContext.CurrentCulture;
+    HtmlString pageClass = Html.ClassForPage();
+
+    string title = Convert.ToString(Model.Title);
+    string siteName = Convert.ToString(WorkContext.CurrentSite.SiteName);
+
+    RegisterLink(new LinkEntry { Type = "image/x-icon", Rel = "shortcut icon", Href = Url.Content(Html.ThemePath(WorkContext.CurrentTheme, "/Images/favicon.ico")) });
+    Script.Include("Vendor/modernizr-2.6.1.min.js").AtHead();
+}
+
+<!doctype html>
+
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7 @pageClass" lang="@currentCulture"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8 @pageClass" lang="@currentCulture"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9 @pageClass" lang="@currentCulture"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js @pageClass" lang="@currentCulture"> <!--<![endif]-->
+<head> 
+    <meta charset="utf-8" />
+
+    <title>@Html.Title(title, siteName)</title> 
+    <meta name="viewport" content="width=device-width" />      
+
+    @Display(Model.Head)
+</head> 
+<body>
+    @Display(Model.Body)
+    @Display(Model.Tail)
+</body>
+</html>

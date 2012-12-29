@@ -1,0 +1,80 @@
+﻿@{
+    Style.Require("kendo.common");
+    Style.Require("kendo.default");
+    
+    Script.Require("jQuery");
+    Script.Require("ko");
+    Script.Require("kendo");
+
+    String antiFToken = @Html.AntiForgeryTokenValueOrchard().ToString();
+}
+
+<script type="text/javascript">
+    var viewModel = null;
+    
+    $(document).ready(function () {
+        function PatientModel(lastName, firstName, id) {
+            var _self = this;
+            _self.UnityPersonId = ko.observable(id);
+            _self.FirstName = firstName ? ko.observable(firstName) : "<Unknown>";
+            _self.LastName = ko.observable(lastName);
+        }
+        
+        function PatientViewModel() {
+            var _self = this;
+
+            _self.selectedPatient = ko.observable(new PatientModel());
+        }
+
+        viewModel = new PatientViewModel();
+        
+        $("#grid").kendoGrid({
+            height: 400,
+            columns: [
+                "UnityPersonId",
+                "LastName",
+                "FirstName"
+            ],
+            pageable: true,
+            sortable: true,
+            selectable: "row",
+            change: function() {
+                var selectedRows = this.select();
+                var dataItem = this.dataItem(selectedRows[0]);
+
+                var doc = new PatientModel(dataItem.LastName, dataItem.FirstName, dataItem.UnityPersonId);
+                viewModel.selectedDoctor(doc);
+            },
+            dataSource: {
+                serverPaging: true,
+                serverFiltering: true,
+                pageSize: 110,
+                transport: {
+                    read: "/api/CloudMetal.AllScripts/PatientApi",
+                    type: "json",
+                    parameterMap: function (options, type) {
+                        var paramMap = kendo.data.transports.odata.parameterMap(options);
+
+                        delete paramMap.$inlinecount; // <-- remove inlinecount parameter.
+                        delete paramMap.$format; // <-- remove format parameter.
+
+                        return paramMap;
+                    }
+                },
+                schema: {
+                    data: function (data) {
+                        return data;
+                    },
+                    total: function (data) {
+                        return data.length; // <-- The total items count is the data length, there is no .Count to unpack.
+                    }
+                }
+            }
+        });
+
+    });
+</script>
+
+<h3>Patients</h3>
+
+<div id="grid"></div>

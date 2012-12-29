@@ -1,0 +1,29 @@
+<Placement>
+    <Place Parts_Common_Metadata="-"
+           Parts_Common_Metadata_Summary="-" />               
+
+    <Match ContentType="Blog">
+        <Place Parts_Title="-" />
+    </Match>
+
+    <Match ContentType="BlogPost">
+        <Place Parts_Common_Metadata="Meta:1"                
+               Parts_Comments_Count="Meta:3"
+               Fields_Contrib_TaxonomyField="Footer:1"
+               Parts_Tags_Showtags="Footer:2"
+               
+
+
+
+
+               Fields_MediaPicker="Content:0"
+
+
+
+
+               Parts_Common_Metadata_Summary="-" />
+        <Match DisplayType="Detail">
+            <Place Parts_Comments="Comments:1" />
+        </Match>
+    </Match>
+</Placement>

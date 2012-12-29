@@ -1,0 +1,12 @@
+Name: Default
+DataProvider: SqlServer
+DataConnectionString: Data Source=localhost;User ID=sa;Password=Br@yd3n!;Initial Catalog=UnityDB
+DataPrefix: null
+RequestUrlHost: null
+RequestUrlPrefix: null
+State: Running
+EncryptionAlgorithm: AES
+EncryptionKey: D17CE23C07CDA4A04A7F8EC989B03BBB5CF114E5CE42F83E2B71AD113C1574D4
+HashAlgorithm: HMACSHA256
+HashKey: 281C3814E6E76D644A17D742F3F3EE9790A0436CEEE9452EAE62EE77E186BA2B6739046552488081DA0ABFB94021E72DA83E5BDF5076118BE73B2F47402A6D58
+Themes: 

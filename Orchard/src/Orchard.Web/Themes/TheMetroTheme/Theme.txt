@@ -1,0 +1,7 @@
+﻿Name: The Metro Theme
+Version: 0.6.0
+Author: Marco Siniscalco
+Tags: responsive, modern, modern iu, metro, metrostyle
+Description:The Metro Theme is a clean and flexible multi-zone theme. It features 20 collapsible widget zones and is flexible enough to cover a wide range of layouts.
+Website: http://orchardmetrotheme.codeplex.com/
+Zones: Header, Navigation, Featured, BeforeMain, AsideFirst, Messages, BeforeContent, Content, AfterContent, AsideSecond, AfterMain, TripelFirst, TripelSecond, TripelThird, FooterQuadFirst, FooterQuadSecond, FooterQuadThird, FooterQuadFourth, Footer

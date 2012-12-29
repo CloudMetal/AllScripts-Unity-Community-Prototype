@@ -1,0 +1,14 @@
+﻿@using Orchard.Utility.Extensions;
+@using Orchard.ContentManagement;
+
+@{
+    var terms = (IEnumerable<Contrib.Taxonomies.Models.TermPart>)Model.Terms;
+	string name = @Model.ContentField.Name;
+}
+
+@if (Model.Terms.Count > 0) {
+    <div class="post-categories">
+        <strong>Posted in</strong> 
+        @(new HtmlString( string.Join(", ", terms.Select(t => Html.ItemDisplayLink(t.Name, t.ContentItem ).ToString()).ToArray()) ))
+    </div>
+}

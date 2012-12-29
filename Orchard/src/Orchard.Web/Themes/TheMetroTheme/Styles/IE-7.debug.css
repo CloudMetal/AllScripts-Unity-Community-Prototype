@@ -1,0 +1,100 @@
+﻿/*
+Role: Internet Explorer v7 Hack
+Author: Marco Siniscalco
+License: MIT
+Copyright: 2012, Marco Siniscalco. All Rights Reserved
+Project Site: http://orchardmetrotheme.codeplex.com/
+***************************************************************/
+
+#topBar, 
+#layout-header, 
+#layout-navigation,
+#layout-before, 
+#layout-featured, 
+#aside-first, 
+#layout-content,
+#aside-second,
+#layout-after-main,
+#tripel-first,
+#tripel-second,
+#tripel-third,
+#footer-quad-first,
+#footer-quad-second,
+#footer-quad-third,
+#footer-quad-fourth,
+#footer { padding:0; }
+
+body { text-align:center; }
+#layout-wrapper { margin-left:auto; margin-right:auto; text-align:left; }
+#layout-footer-container { margin-left:auto; margin-right:auto; text-align:left; }
+
+#layout-wrapper,
+#layout-footer-container { margin-left: 10px; margin-right: 10px; }
+#layout-tripel-container { clear:both; }
+
+.aside-1 #aside-first,
+.aside-12 #aside-first { padding-right:10px; }
+
+.aside-2 #aside-second,
+.aside-12 #aside-second { padding-left:10px; }
+
+.split-12 #footer-quad-container > div, /* If zones 1, 2 are on */
+.split-13 #footer-quad-container > div, /* If zones 1, 3 are on */
+.split-14 #footer-quad-container > div, /* If zones 1, 4 are on */
+.split-23 #footer-quad-container > div, /* If zones 2, 3 are on */
+.split-24 #footer-quad-container > div, /* If zones 2, 4 are on */
+.split-34 #footer-quad-container > div,  /* If zones 3, 4 are on */
+.split-123 #footer-quad-container > div,  /* If zones 1, 2, 3 are on */ 
+.split-124 #footer-quad-container > div,  /* If zones 1, 2, 4 are on */
+.split-134 #footer-quad-container > div,  /* If zones 1, 3, 4 are on */
+.split-234 #footer-quad-container > div,   /* If zones 2, 3, 4 are on */
+.split-1234 #footer-quad-container > div  /* If zones 1, 2, 3, 4 are on */ { width: 100%; }
+
+/* 
+    1. 12 Column Grid 0px - 320px - MOBILE & SMALL TABLET
+---------------------------------------------------------------------------*/
+@media screen and (min-width: 0px) and (max-width: 480px) { }
+
+/* 
+    2. 12 Column Grid 481px - 768px - TABLET PRTRAIT
+---------------------------------------------------------------------------*/
+@media screen and (min-width: 481px) and (max-width: 768px) {
+
+    .aside-12 #layout-content { width: 64%; }
+    .aside-1  #layout-content,
+    .aside-2  #layout-content { width: 65%; }
+
+}
+
+/* 
+    3. 12 Column Grid 768px - 968px - ...
+---------------------------------------------------------------------------*/
+@media screen and (min-width: 769px) and (max-width: 968px) {
+    
+    .aside-12 #layout-content { width: 64%; }
+    .aside-1  #layout-content,
+    .aside-2  #layout-content { width: 64%; }
+
+}
+
+/* 
+    4. 12 Column Grid 968px - 1024px - ...
+---------------------------------------------------------------------------*/
+@media screen and (min-width: 969px) and (max-width: 1024px) {
+        
+    .aside-1  #layout-content,  
+    .aside-2  #layout-content { width: 73.9%; }
+    .aside-12 #layout-content { width: 55.9%; }
+
+}
+
+/* 
+    5. 12 Column Grid 968px - Infinity - ...
+---------------------------------------------------------------------------*/
+@media screen and (min-width: 1025px) {
+
+    .aside-1 #layout-content,  
+    .aside-2 #layout-content { width: 73.9%; }
+    .aside-12 #layout-content { width: 55.9%; }
+
+}

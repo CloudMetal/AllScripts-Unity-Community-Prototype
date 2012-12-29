@@ -1,0 +1,81 @@
+﻿﻿@model TheMetroTheme.ViewModels.ThemeSettingsViewModel
+
+<style type="text/css">
+    select { width:150px; }
+</style>
+
+@{ Layout.Title = string.Format("TheMetroTheme » {0}", T("Base Settings").ToString()); }
+
+@using (Html.BeginFormAntiForgeryPost())
+{
+    Html.ValidationSummary();
+    <fieldset>
+        @Html.CheckBoxFor(m => m.UseBranding, new { @id = "chkUseBranding" })@T("Use Branding")
+        <span id="lblUseBranding" class="hint">@T("Select this checkbox to use the site name and tagline as branding")</span>
+    </fieldset>
+    
+    <fieldset id="fieldsBrandingSettings">
+
+        <label id="" for="@Html.FieldIdFor(m => m.Tagline)">@T("Branding Tagline")</label>
+        @Html.TextBoxFor(m => m.Tagline, new { @rows = "15", @maxlength = 120, @class = "large text" })
+        <span class="hint">@("You can provide a tagline as branding")</span>
+    </fieldset>
+    
+    <fieldset>
+        <label for="@Html.FieldIdFor(m => m.BackgroundCss)">@T("Color Features")</label>
+        <select id="@Html.FieldIdFor(m => m.BackgroundCss)" name="@Html.FieldNameFor(m => m.BackgroundCss)">
+            <option value="Light.css" @if (Model.BackgroundCss.EndsWith("Light.css"))
+                                      { <text>selected="selected"</text> }>@T("Light")
+
+            </option>
+            <option value="Dark.css" @if (Model.BackgroundCss.EndsWith("Dark.css"))
+                                     { <text>selected="selected"</text> }>@T("Dark")
+
+            </option>
+        </select>
+
+        <select id="@Html.FieldIdFor(m => m.AccentCss)" name="@Html.FieldNameFor(m => m.AccentCss)">
+            <option value="Amber.css" @if (Model.AccentCss.EndsWith("Amber.css"))
+                                     { <text>selected="selected"</text> }>@T("Amber")</option>
+            <option value="Blue.css" @if (Model.AccentCss.EndsWith("Blue.css"))
+                                     { <text>selected="selected"</text> }>@T("Blue")</option>
+            <option value="Cyan.css" @if (Model.AccentCss.EndsWith("Cyan.css"))
+                                     { <text>selected="selected"</text> }>@T("Cyan")</option>
+            <option value="Green.css" @if (Model.AccentCss.EndsWith("Green.css"))
+                                      { <text>selected="selected"</text> }>@T("Green")</option>
+            <option value="Violet.css" @if (Model.AccentCss.EndsWith("Violet.css"))
+                                      { <text>selected="selected"</text> }>@T("Violet")</option>
+        </select>
+        <span class="hint">@T("Select the basic version of the theme and the accent color that you want")</span>
+    </fieldset>
+
+    <fieldset>
+        <img src="@Href("~//Themes/TheMetroTheme/Content/Admin/Colors.png")" alt="Sample of Theme Colors" />
+        <span class="hint">@("Above you can see the available colors in action")</span>
+    </fieldset>
+    
+    <fieldset>
+        <legend></legend>
+        <button class="primaryAction" type="submit" name="submit.Save" value="submit.Save">@T("Save")</button>
+    </fieldset>
+}
+
+@using (Script.Foot())
+{
+<script type="text/javascript">
+    //<![CDATA[
+    $(function () {
+
+        var useBranding = @Model.UseBranding.ToString().ToLower();
+
+        if(!useBranding)
+            $('#fieldsBrandingSettings').hide();
+
+        $('#chkUseBranding').bind("change", function () {
+            $('#fieldsBrandingSettings').toggle();
+        });
+
+    });
+    //]]>
+</script>
+}

@@ -1,0 +1,8 @@
+﻿/*
+Role: Accent
+Accent Color: #009de0 - Blue
+Author: Marco Siniscalco
+Copyright: 2012, Marco Siniscalco. All Rights Reserved
+Project Site: http://orchardmetrotheme.codeplex.com/
+***************************************************************/
+a{color:#1ba1e2}a.btn{padding:8px 10px 8px 10px;background:#1ba1e2;color:#fff}a.btn:hover{padding:8px 10px 8px 10px;background:#178dc7;color:#fff}input[type="submit"],input[type="button"]{background:#1ba1e2;color:#fff}input[type="submit"]:hover,input[type="button"]:hover{background:#178dc7;color:#fff}.primaryAction{padding:8px 10px 8px 10px;background:#1ba1e2;color:#fff;border:1px solid #1ba1e2;cursor:pointer}.primaryAction:hover{padding:8px 10px 8px 10px;background:#178dc7;color:#fff;border:1px solid #178dc7}#layout-navigation nav ul li:hover,#layout-navigation nav ul li.current{background:#1ba1e2}#layout-navigation nav ul li:hover a,#layout-navigation nav ul li.current a{color:#fff}.tags a{background:#1ba1e2;color:#fff}.tags a:hover{background:#178dc7}.pager a{background:#1ba1e2;color:#fff}.pager a:hover{background:#178dc7}.highlighted{background:#1ba1e2;color:#fff;font-family:Menlo,Monaco,Consolas,"Courier New",monospace;padding:1px}.hero-unit{background-color:#1ba1e2;color:#fff}.hero-unit a{background:#178dc7;color:#fff;padding:0 5px 0 5px;font-weight:bold}.hero-unit a:hover{color:#178dc7;background:#fff}.hero-unit a.btn,.hero-unit a.btn:hover{color:#fff;background:url('Blue/little-right-metro-arrow-white.png') right 8px Transparent no-repeat;padding:0 25px 0 0;font-size:22px;font-weight:bold}

@@ -1,0 +1,8 @@
+﻿/*
+Role: Accent
+Accent Color: #aa00ff - Violet
+Author: Marco Siniscalco
+Copyright: 2012, Marco Siniscalco. All Rights Reserved
+Project Site: http://orchardmetrotheme.codeplex.com/
+***************************************************************/
+a{color:#a0f}a.btn{padding:8px 10px 8px 10px;background:#a0f;color:#fff}a.btn:hover{padding:8px 10px 8px 10px;background:#8e12cb;color:#fff}input[type="submit"],input[type="button"]{background:#a0f;color:#fff}input[type="submit"]:hover,input[type="button"]:hover{background:#8e12cb;color:#fff}.primaryAction{padding:8px 10px 8px 10px;background:#a0f;color:#fff;border:1px solid #a0f;cursor:pointer}.primaryAction:hover{padding:8px 10px 8px 10px;background:#8e12cb;color:#fff;border:1px solid #8e12cb}#layout-navigation nav ul li:hover,#layout-navigation nav ul li.current{background:#a0f}#layout-navigation nav ul li:hover a,#layout-navigation nav ul li.current a{color:#fff}.tags a{background:#a0f;color:#fff}.tags a:hover{background:#8e12cb}.pager a{background:#a0f;color:#fff}.pager a:hover{background:#8e12cb}.highlighted{background:#a0f;color:#fff;font-family:Menlo,Monaco,Consolas,"Courier New",monospace;padding:1px}.hero-unit{background-color:#a0f;color:#fff}.hero-unit a{background:#8e12cb;color:#fff;padding:0 5px 0 5px;font-weight:bold}.hero-unit a:hover{color:#8e12cb;background:#fff}.hero-unit a.btn,.hero-unit a.btn:hover{color:#fff;background:url('Violet/little-right-metro-arrow-white.png') right 8px Transparent no-repeat;padding:0 25px 0 0;font-size:22px;font-weight:bold}#layout-footer-container-wrapper a{color:#c247ff}

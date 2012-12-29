@@ -1,0 +1,12 @@
+﻿Name: Pharmalto.Ecosystem
+AntiForgery: enabled
+Author: Pharmalto, LLC
+Website: http://www.pharmalto.com
+Version: 0.1
+OrchardVersion: 1.5
+Category:  Pharmalto
+Dependencies: Orchard.jQuery, Orchard.Knockout, Orchard.Users, Orchard.KendoUI
+Description: Pharmalto Ecosystem Module
+Features:
+    Pharmalto.Ecosystem:
+        Description: Description for feature Pharmalto.Ecosystem.

@@ -1,0 +1,89 @@
+﻿@using Orchard.UI.Resources;
+
+@{
+    /* Stylesheets
+       ============================================================= */
+
+    Style.Include("Vendor/Normalize.css");
+    Style.Include("Application.css");
+
+    /* Scripts
+       ============================================================= */
+
+    Script.Require("jQuery");
+    Script.Include("foundation.min.js");
+    Script.Include("Application.js");
+
+    /* Ad Hoc Shapes
+       ============================================================= */
+
+    WorkContext.Layout.Footer.Add(New.Branding(), "0");
+}
+
+<header class="container header" role="banner">
+    <div class="row">
+        <div class="four columns logo">
+            <a href="@Href("~/")" rel="index">
+                @if (Model.Logo != null) {
+                    @Display(Model.Logo)
+                } else {
+                    <h1>@WorkContext.CurrentSite.SiteName</h1>
+                }
+            </a>
+        </div><!-- //.logo -->
+
+        @Display(Model.Navigation)
+    </div><!-- //.row -->
+</header>
+
+<div class="container menu-fix">
+    <div class="row main" role="main">    
+        @if (Model.Sidebar != null || Model.AuthorBio != null) {
+            @:<div class="eight columns content">
+        } else {
+            @:<div class="twelve columns last content">
+        }
+    
+            @if (Model.Messages != null) {
+                <div class="messages">
+                    @Display(Model.Messages)
+                </div><!-- //.messages -->
+            }
+
+            @Display(Model.Content)
+        </div><!-- //.content -->
+
+        @if (Model.Sidebar != null || Model.AuthorBio != null) {
+            <aside class="three columns last sidebar" role="complementary">
+                @Display(Model.AuthorBio)
+                @Display(Model.Sidebar)
+            </aside>
+        }
+    </div><!-- //.main -->
+</div><!-- //.container -->
+
+<footer class="container footer" role="complementary">
+    <div class="row first-footer">
+        @if  (Model.FooterFirst != null) {
+            <div class="four columns footer-first">
+                @Display(Model.FooterFirst)
+            </div>
+        }
+
+        @if  (Model.FooterSecond != null) {
+            <div class="four columns footer-second">
+                @Display(Model.FooterSecond)
+            </div>
+        }
+
+        @if  (Model.FooterThird != null) {
+            <div class="four columns last footer-third">
+                @Display(Model.FooterThird)
+            </div>
+        }
+    </div><!-- //.first-footer -->
+
+    <div class="row second-footer">
+        @Display(Model.Footer)
+    </div><!-- //.second-footer -->
+</footer>

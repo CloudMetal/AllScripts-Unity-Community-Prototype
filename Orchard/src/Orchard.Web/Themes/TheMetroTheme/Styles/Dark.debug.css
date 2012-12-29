@@ -1,0 +1,111 @@
+﻿/*
+Role: Back
+Base Theme: Dark
+Author: Marco Siniscalco
+License: MIT
+Copyright: 2012, Marco Siniscalco. All Rights Reserved
+Project Site: http://orchardmetrotheme.codeplex.com/
+***************************************************************/
+
+body  {
+  background:url('../Content/Dark/bg_body.png') #000 repeat-x;
+  color: #fff;
+}
+
+pre { background: #555; border:1px solid #777; }
+hr  { color: #555; background-color: #555; }
+
+/* 
+    TEXT ELEMENTS
+***************************************************************/
+blockquote  { border-left: 5px solid #555; }
+
+/* 
+    FORMS
+***************************************************************/
+input[type="text"], input[type="password"], textarea, select { 
+    border: 2px solid #555;
+    background:#222;
+    color:#efefef;
+}
+input[type="text"], input[type="password"], textarea, select { 
+    padding: 8px;
+}
+    input:disabled, textarea:disabled {
+        background:#3f3f3f;
+    }
+
+input[type="submit"]:disabled,
+input[type="button"]:disabled {
+    background:#3f3f3f;
+}
+
+/* 
+    TABLES
+***************************************************************/
+th { font-weight: bold; }
+th, td { padding-top:10px; border-right:1px solid #4f4f4f; border-bottom:1px solid #4f4f4f; padding:8px; }
+tr { background:#3a3a3a; color:#fff; }
+tr:nth-child(2n+1) { background:#333; color:#fff; }
+th:last-child, td:last-child { border-right:1px solid Transparent; }
+
+/* 
+    LAYOUTS
+***************************************************************/
+#layout-topBar { }
+#layout-navigation { }
+    #layout-navigation > div { 
+        background:#333;
+        width:100%;
+    }
+    #layout-navigation nav ul li.first {
+    }
+    #layout-navigation nav ul li {
+        background: #333;
+        border-bottom: 1px solid #4f4f4f;
+    }
+    #layout-navigation nav ul li:hover {
+    }
+    #layout-navigation nav ul li.current {
+    }
+    #layout-navigation nav ul li a {
+        color: #fff;
+    }
+    #layout-navigation nav ul li.last {
+        border-right: none;
+    }
+
+#layout-footer-container-wrapper { background: #353535; color :#fff; }
+
+/* 
+    MENU
+***************************************************************/
+aside ul.menu li { border-bottom:1px solid #353535; }
+
+/* 
+    BLOGS
+***************************************************************/
+.blog-posts li {  
+    background-color: #0f0f0f; 
+    border: 1px solid #353535;
+}
+aside .archives ul.archiveMonthList li { border-bottom: 1px solid #353535; }
+
+/* 
+    COMMENTS
+***************************************************************/
+.comments li { background: #0f0f0f; border: 1px solid #353535; }
+
+/*
+    SEARCH
+***************************************************************/
+.tagged-posts li,
+.search-results li { background: #0f0f0f; border: 1px solid #353535; }
+
+/* 
+    UTILITY
+***************************************************************/
+.well {
+    background-color: #333; 
+    border: 1px solid #555;
+}

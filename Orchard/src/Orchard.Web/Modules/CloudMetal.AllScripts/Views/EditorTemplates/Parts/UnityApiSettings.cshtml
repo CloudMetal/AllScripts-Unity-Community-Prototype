@@ -1,0 +1,21 @@
+﻿@model CloudMetal.AllScripts.Models.UnityApiSettingsPart
+
+<fieldset>
+    <legend>@T("Unity Account Settings")</legend>
+    <div>
+        <label for="@Html.FieldIdFor(m => m.AppName)">@T("Application Name")</label>
+        @Html.EditorFor(m => m.AppName)
+        @Html.ValidationMessage("Application Name", "*")
+    </div>
+    <div>
+        <label for="@Html.FieldIdFor(m => m.ServiceUser)">@T("Service User")</label>
+        @Html.EditorFor(m => m.ServiceUser)
+        @Html.ValidationMessage("Service User", "*") 
+    </div>
+    <div>
+        <label for="@Html.FieldIdFor(m => m.ServicePassword)">@T("Service Password")</label>
+        @Html.EditorFor(m => m.ServicePassword)
+        @Html.ValidationMessage("Service Password", "*")
+    </div>
+    
+</fieldset>

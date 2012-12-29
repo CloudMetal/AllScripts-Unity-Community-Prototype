@@ -1,0 +1,40 @@
+﻿﻿@model TheMetroTheme.ViewModels.ThemeSettingsViewModel
+
+@{ Layout.Title = string.Format("TheMetroTheme » {0}", T("Custom CSS").ToString()); }
+
+@using (Html.BeginFormAntiForgeryPost())
+{
+    Html.ValidationSummary();
+    <fieldset>
+        @Html.CheckBoxFor(m => m.UseCustomCss, new { @id = "chkUseCustomCss" })@T("Use Custom CSS")
+        <span class="hint">@T("Select this checkbox to provide your custom CSS styles")</span>
+    </fieldset>
+    
+    <fieldset>
+        @Html.TextAreaFor(m => m.CustomCss, new { @id = "txtCustomCss", @rows = "30", @style = "font-family: courier" })
+    </fieldset>
+    
+    <fieldset>
+        <legend></legend>
+        <button class="primaryAction" type="submit" name="submit.Save" value="submit.Save">@T("Save")</button>
+    </fieldset>
+}
+
+@using (Script.Foot())
+{
+<script type="text/javascript">
+    //<![CDATA[
+    $(function () {
+
+        var useCustomCss = @Model.UseCustomCss.ToString().ToLower();
+
+        if(!useCustomCss)
+            $('#txtCustomCss').hide();
+
+        $('#chkUseCustomCss').bind("change", function () {
+            $('#txtCustomCss').toggle();
+        });
+    });
+    //]]>
+</script>
+}

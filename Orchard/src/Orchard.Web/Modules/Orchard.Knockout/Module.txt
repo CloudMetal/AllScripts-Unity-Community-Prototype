@@ -1,0 +1,9 @@
+Name: Knockout
+AntiForgery: enabled
+Author: Knockoutjs.com. Nick Daniels	
+Website: http://knockout.js
+Version: 2.1
+OrchardVersion: 1.0
+Description: Enabled theme and module developers to use Knockout (http://knockoutjs.com)
+FeatureDescription: A common location for Knockout and related scripts, includes jQuery Templates.
+Category: Developer

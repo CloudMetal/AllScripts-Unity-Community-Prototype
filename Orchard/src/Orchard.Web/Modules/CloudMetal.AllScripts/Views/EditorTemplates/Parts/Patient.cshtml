@@ -1,0 +1,25 @@
+﻿@model CloudMetal.AllScripts.Models.PatientPart
+@{
+    var patient = Model.Record.Patient;
+}
+
+@if (patient == null) {
+    <p>No associated patient.</p>
+}
+else {
+    <fieldset>
+    <legend>@T("Associated Patient")</legend>
+    <div>
+        <label for="@Html.FieldIdFor(m => m.FirstName)">@T("First Name")</label>
+        @Html.EditorFor(m => m.FirstName)
+        @Html.ValidationMessage("First Name", "*")
+    </div>
+    <div>
+        <label for="@Html.FieldIdFor(m => m.LastName)">@T("Last Name")</label>
+        @Html.EditorFor(m => m.LastName)
+        @Html.ValidationMessage("Last Name", "*") 
+    </div>
+    
+    
+</fieldset>
+}

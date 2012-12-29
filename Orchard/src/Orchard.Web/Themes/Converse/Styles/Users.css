@@ -1,0 +1,367 @@
+/*!
+ * Copyright (c) 2012 Orchard Prime
+ *
+ * Licensing terms can be found at
+ * http://www.orchardprime.com/licensing
+ * by using this product you hereby agree to all of
+ * the terms contained within. Licensing information
+ * may be updated at any time without prior notice.
+ */
+
+/* ==========================================================================
+   01   Page Standards
+   ========================================================================== */
+
+* { 
+    -webkit-box-sizing: border-box; 
+    -moz-box-sizing: border-box; 
+    box-sizing: border-box; 
+}
+
+html { font-size: 62.5%; }
+
+body { 
+    background: #26282a; 
+    font-family: "Helvetica Neue", "Helvetica", Arial, sans-serif;
+    font-size: 14px; 
+    line-height: 1; 
+    color: #333; 
+    position: relative; 
+    -webkit-font-smoothing: antialiased; 
+}
+
+::-moz-selection {
+    background: #b3d4fc;
+    text-shadow: none;
+}
+
+::selection {
+    background: #b3d4fc;
+    text-shadow: none;
+}
+
+img, object, embed {
+    max-width: 100%;
+}
+
+img { height: auto; }
+
+/* ==========================================================================
+   03   Required Helper Classes
+   ========================================================================== */
+
+.left    { float: left;                 }
+.right   { float: right;                }
+.centred { float: none; margin: 0 auto; }
+
+.clearfix:before,
+.clearfix:after {
+    content: " "; 
+    display: table; 
+}
+
+.clearfix:after { clear: both; }
+.clearfix       { *zoom: 1;    }
+
+.text-left  { text-align: left;    }
+.text-right  { text-align: right;  }
+.text-center { text-align: center; }
+
+.no-display { display: none; }
+
+/* ==========================================================================
+   04   Links
+   ========================================================================== */
+
+a { 
+    color: #147bb6; 
+    text-decoration: none; 
+    line-height: inherit; 
+    -webkit-transition: all 0.15s linear; 
+    -moz-transition: all 0.15s linear; 
+    -o-transition: all 0.15s linear; 
+    transition: all 0.15s linear; 
+}
+
+a:hover { 
+	color: #000; 
+}
+
+a:active {
+    
+}
+
+a:focus { 
+    color: #bd7052; 
+    outline: none; 
+}
+
+/* ==========================================================================
+   05   Required Type
+   ========================================================================== */
+
+dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, pre, form, p, blockquote, 
+th, td { 
+    margin: 0; 
+    padding: 0; 
+    direction: ltr; 
+}
+
+p { 
+    line-height: 1.6; 
+    margin-bottom: 17px; 
+}
+
+h1, h2, h3, h4, h5, h6 { 
+    font-weight: bold; 
+    color: #555; 
+    text-rendering: optimizeLegibility; 
+    line-height: 1.1; 
+    margin: 14px 0; 
+}
+
+h1 { font-size: 32px; }
+
+/* ==========================================================================
+   06   Required Forms
+   ========================================================================== */
+
+form { margin: 0 0 20px 0; }
+
+/* 09a  Buttons
+   ========================================================================== */
+
+.button, button {
+    width: auto;
+    background-color: #888;
+    border: 1px solid #a4ab91;
+    color: #e7e7e7;
+    cursor: pointer;
+    display: inline-block;
+    font-family: "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif;
+    font-size: 14px;
+    font-weight: bold;
+    line-height: 1;
+    margin: 0;
+    outline: none;
+    padding: 10px 20px 11px;
+    position: relative;
+    text-align: center;
+    text-decoration: none;
+    text-shadow: 1px 1px 0px #666;
+    -webkit-transition: background-color 0.15s ease-in-out;
+    -moz-transition: background-color 0.15s ease-in-out;
+    -o-transition: background-color 0.15s ease-in-out;
+    transition: background-color 0.15s ease-in-out;
+    
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    border-radius: 4px;
+}
+
+.button:hover, button:hover { 
+    background-color: #666; 
+}
+
+.button:active, button:active {
+    background: #555; 
+    -webkit-box-shadow: inset 0 0 5px 1px #444;
+    -moz-box-shadow: inset 0 0 5px 1px #444;
+    box-shadow: inset 0 0 5px 1px #444;
+}
+
+/* 
+ * Modern browser eyegasm stuff.
+ */
+
+.boxshadow .button, .boxshadow button {
+    -webkit-box-shadow: 0 0 0 4px #eee;
+    -moz-box-shadow: 0 0 0 4px #eee;
+    box-shadow: 0 0 0 4px #eee;
+    margin: 4px;
+}
+
+/* Old IE */
+
+.lt-ie8 .button, .lt-ie8 button {
+    display: inline;
+    zoom: 1;
+}
+
+/* 09b  Labels
+   ========================================================================== */
+
+label { 
+    font-size: 14px; 
+    color: #4d4d4d; 
+    display: inline-block; 
+    margin-bottom: 8px; 
+    font-weight: bold;
+}
+
+/* Old IE */
+
+.lt-ie8 label {
+    display: inline; 
+    zoom: 1;
+}
+
+/* 09c  Inputs
+   ========================================================================== */
+
+input[type="text"], input[type="password"], input[type="date"], input[type="datetime"], 
+input[type="email"], input[type="number"], input[type="search"], input[type="tel"], 
+input[type="time"], input[type="url"], textarea { 
+    font-family: "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif; 
+    border: 1px solid #b9bcbc; 
+    background: #fff;
+    color: #333; 
+    display: block; 
+    font-size: 14px; 
+    line-height: 14px;
+    margin: 0 0 12px 0; 
+    padding: 9px 6px; 
+    width: 100%; 
+    -webkit-transition: all 0.15s linear; 
+    -moz-transition: all 0.15s linear; 
+    -o-transition: all 0.15s linear; 
+    transition: all 0.15s linear; 
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    border-radius: 4px;
+}
+
+input[type="text"]:focus, input[type="password"]:focus, input[type="date"]:focus, input[type="datetime"]:focus, 
+input[type="email"]:focus, input[type="number"]:focus, input[type="search"]:focus, input[type="tel"]:focus, 
+input[type="time"]:focus, input[type="url"]:focus, textarea:focus { 
+    background: #fafafa; 
+    outline: none !important; 
+    border-color: #a4a4a4; 
+    -webkit-box-shadow: inset 1px 1px 2px rgba(0, 0, 0, 0.1)
+}
+
+input[type="text"][disabled], input[type="password"][disabled], input[type="date"][disabled], 
+input[type="datetime"][disabled], input[type="email"][disabled], input[type="number"][disabled], 
+input[type="search"][disabled], input[type="tel"][disabled], input[type="time"][disabled], 
+input[type="url"][disabled], textarea[disabled] { 
+    background-color: #ddd; 
+}
+
+/* 
+ * Modern browser eyegasm stuff.
+ */
+
+.boxshadow input[type="text"], .boxshadow input[type="password"], .boxshadow input[type="date"], 
+.boxshadow input[type="datetime"], .boxshadow input[type="email"], .boxshadow input[type="number"], 
+.boxshadow input[type="search"], .boxshadow input[type="tel"], .boxshadow input[type="time"], 
+.boxshadow input[type="url"], .boxshadow textarea {
+    -moz-box-shadow: 0 0 0 4px #e4e8db, inset 0 0 2px 1px #e7e7e7;
+    -webkit-box-shadow: 0 0 0 4px #e4e8db, inset 0 0 2px 1px #e7e7e7;
+    box-shadow: 0 0 0 4px #e4e8db, inset 0 0 2px 1px #e7e7e7;
+    margin: 4px 4px 12px 4px; 
+}
+
+/* Errors */
+
+.input-validation-error {
+    border-color: #c86363 !important;
+}
+
+.boxshadow .input-validation-error {
+    -moz-box-shadow: 0 0 0 4px #dcafae, inset 0 0 2px 1px #e7e7e7 !important;
+    -webkit-box-shadow: 0 0 0 4px #dcafae, inset 0 0 2px 1px #e7e7e7 !important;
+    box-shadow: 0 0 0 4px #dcafae, inset 0 0 2px 1px #e7e7e7 !important;
+}
+
+/* 09d  Validation Summary
+   ========================================================================== */
+
+.validation-summary-errors {
+    background-color: #dcafae;
+    border: 1px solid #c86363;
+    padding: 20px 15px;
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    border-radius: 4px;
+    margin-bottom: 17px;
+    text-align: left;
+    font-weight: bold;
+    line-height: 1.1;
+}
+
+.validation-summary-errors > ul {
+    font-weight: normal;
+    list-style-position: outside;
+    margin-left: 18px;
+    margin-top: 8px;
+    line-height: 1.4; 
+}
+
+.field-validation-error { display: block; }
+
+/* ==========================================================================
+   10   Login
+   ========================================================================== */
+
+.login-container {
+    width: 440px;
+    margin: 6em auto 0 auto;
+}
+
+.login-logo {
+    height: 120px;
+    width: 120px;
+    margin-bottom: 17px;
+}
+
+.login-form-outer {
+    background: rgba(105, 111, 87, .4);
+    padding: 8px;
+    border-radius: 4px;
+}
+
+.login-title {
+    background: #F0F3E9;
+    border: 1px solid #bfc3c5;
+    -webkit-box-shadow: inset 0 0 0 1px white;
+    -moz-box-shadow: inset 0 0 0 1px white;
+    box-shadow: inset 0 0 0 1px white;
+    margin: 0;
+    font-size: 14px;
+    text-shadow: 0 1px 0 white;
+    line-height: 48px;
+}
+
+.login-form {
+    background: #fdfdfd;
+    border: 1px solid #bfc3c5;
+    border-top: none;
+    -webkit-box-shadow: inset 0 0 0 1px #f0f0f0;
+    -moz-box-shadow: inset 0 0 0 1px #f0f0f0;
+    box-shadow: inset 0 0 0 1px #f0f0f0;
+    padding: 20px 20px 25px 20px;
+}
+
+.login-form > form { margin: 0; }
+
+.login-button { display: block; }
+
+.remember-me { padding-top: 12px; }
+
+.remember-me > label {
+    font-weight: normal;
+    font-size: 12px;
+}
+
+.back-to-site           { margin-top: 24px; }
+.back-to-site > a       { color: #8b8b8b;   }
+.back-to-site > a:hover { color: #fff;      }
+
+/* Old IE */
+
+.lt-ie9 {
+    background: transparent;
+    -ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr=#66696F57,endColorstr=#66696F57)"; 
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#66696F57,endColorstr=#66696F57);   
+    zoom: 1;
+}

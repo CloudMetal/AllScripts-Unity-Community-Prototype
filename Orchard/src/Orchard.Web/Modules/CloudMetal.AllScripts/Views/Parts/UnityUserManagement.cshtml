@@ -1,0 +1,29 @@
+﻿@using CloudMetal.AllScripts.Models
+@using Orchard.ContentManagement
+@using Orchard.Users.Models
+@{
+    Script.Require("jQuery");
+    Script.Require("ko");
+    
+    UserPart user = Model.User;
+    DoctorPart doctor = null;
+    PatientPart patient = null;
+    if (user != null) {
+        doctor = user.As<DoctorPart>();
+        patient = user.As<PatientPart>();
+    }
+    
+}
+
+@if (user == null) {
+    @Html.ActionLink("Register", "Register", "Account", new { area = "Orchard.Users" }, null)
+}
+else if (doctor.Doctor == null && patient.Patient == null) {
+    <p>Are you a @Html.ActionLink("doctor", "Associate", "Doctor", new { area = "CloudMetal.AllScripts" }, null) or a @Html.ActionLink("patient", "Associate", "Patient", new { area = "CloudMetal.AllScripts" }, null)?</p>
+} else if (doctor.Doctor != null) {
+    
+} 
+
+@if (patient != null) {
+    
+}
